@@ -1,4 +1,23 @@
+resource "aws_security_group" "allow_all"{
+    name = var.sg_name
+    description = "allowing all ports"
+
+    ingress{
+        description = "Allowing all inbound traffic"
+        from_port = 0
+        to_port = 0
+        protocol = "tcp"
+        cidr_blocks = var.sg_cidr
+                  }
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = -1
+        cidr_blocks = var.sg_cidr
+    }
+}
+ 
 resource "aws_instance" "my-wish" {
-    ami = "ami-0b4f379183e5706b9"
-    instance_type = "t2.micro"
+    ami = "var.ami_id"
+    instance_type = "var.instance_type"
 }
