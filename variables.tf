@@ -22,7 +22,7 @@ variable "tags" {
     default = {
         name = "MongoDB" 
         Environment = "DEV"
-        Terraform "true"
+        Terraform = "true"
         Project = "Roboshop"
         Component = "MongoDB"
 
